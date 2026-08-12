@@ -6,11 +6,9 @@ DISCLAIMER: DO NOT EXPECT THIS SCRIPT TO BE STABLE, NOR EXPECT IT TO WORK ON YOU
 """
 
 import os
-import getpass
 
 def clear():
-    for i in range(2):
-        os.system("clear")
+    print("\033[2J\033[3J\033[H", end='')
 
 def update_macos():
     print("[Updating dependencies for macOS...]")
@@ -19,8 +17,8 @@ def update_macos():
 
 def update_windows():
     print("[Updating dependencies for Windows...]")
-    print(f"> WINEDEBUG=-all wine C:/Users/{getpass.getuser()}/appdata/local/programs/python/python314/scripts/pip.exe install -r requirements.txt --upgrade")
-    os.system(f"WINEDEBUG=-all wine C:/Users/{getpass.getuser()}/appdata/local/programs/python/python314/scripts/pip.exe install -r requirements.txt --upgrade")
+    print(f"> WINEDEBUG=-all wine wine $HOME/.wine/drive_c/Python314/python.exe -m pip install -r requirements.txt --upgrade")
+    os.system(f"WINEDEBUG=-all wine $HOME/.wine/drive_c/Python314/python.exe -m pip install -r requirements.txt --upgrade")
 
 os.chdir(f"{os.path.dirname(__file__)}/..")
 clear()

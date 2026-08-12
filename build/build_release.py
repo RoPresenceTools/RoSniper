@@ -5,6 +5,10 @@ I'm open sourcing this component to be transparent on how the pre-built binaries
 DISCLAIMER: THIS BUILD SCRIPT MAY CHANGE AT ANY TIME.
 DO NOT EXPECT THIS TO BE STABLE, NOR EXPECT IT TO WORK ON YOUR MACHINE.
 For a more stable and consumer-friendly build script, see build.py!
+
+Paths:
+wine $HOME/.wine/drive_c/Python314/python.exe -m pip
+wine $HOME/.wine/drive_c/Python314/Scripts/pyinstaller.exe
 """
 
 import os
@@ -45,7 +49,7 @@ def build(ops):
             shutil.rmtree("./RoSniper-Windows/")
 
         os.mkdir(f"./RoSniper-Windows/")
-        os.system(f"wine C:/Users/{getpass.getuser()}/appdata/local/programs/python/python314/scripts/pyinstaller.exe {RoSniperPath} --icon ./Resources/AppIcon.ico")
+        os.system(f"wine $HOME/.wine/drive_c/Python314/Scripts/pyinstaller.exe {RoSniperPath} --icon ./Resources/AppIcon.ico")
         os.system(f"cp -r ./dist/RoSniper/_internal/ ./RoSniper-Windows/_internal")
         os.system(f"cp ./dist/RoSniper/RoSniper.exe ./RoSniper-Windows/RoSniper.exe")
     elif ops == "Darwin":
