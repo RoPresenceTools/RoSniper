@@ -17,7 +17,7 @@ def update_macos():
 
 def update_windows():
     print("[Updating dependencies for Windows...]")
-    print(f"> WINEDEBUG=-all wine wine $HOME/.wine/drive_c/Python314/python.exe -m pip install -r requirements.txt --upgrade")
+    print(f"> WINEDEBUG=-all wine $HOME/.wine/drive_c/Python314/python.exe -m pip install -r requirements.txt --upgrade")
     os.system(f"WINEDEBUG=-all wine $HOME/.wine/drive_c/Python314/python.exe -m pip install -r requirements.txt --upgrade")
 
 os.chdir(f"{os.path.dirname(__file__)}/..")
