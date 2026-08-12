@@ -13,7 +13,6 @@ wine $HOME/.wine/drive_c/Python314/Scripts/pyinstaller.exe
 
 import os
 import shutil
-import getpass
 import zipfile
 import platform
 
